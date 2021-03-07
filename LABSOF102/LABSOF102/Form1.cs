@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SQLite;
 
 namespace LABSOF102
 {
     public partial class Form1 : Form
     {
+        
         public void LimpiarFormulario()
         {
             DialogResult respuesta = MessageBox.Show("¿Desea limpiar el formulario?", "Limpiar formulario", MessageBoxButtons.OKCancel);
@@ -79,6 +81,55 @@ namespace LABSOF102
         private void button2_Click(object sender, EventArgs e)
         {
             LimpiarFormulario();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+            //if (txtMatricula.Text.Length <= 3)
+            //    MessageBox.Show("Introduzca al menos cuatro digitos de la matrícula");
+
+            //Connection object
+            var con = new SQLiteConnection(@"Data Source = .\Database.db");
+            con.Open();
+            //Common object to write SQL query
+            string query = "SELECT * from estudiante";
+            var cmd = new SQLiteCommand(query, con);
+            cmd.CommandText = "DROP TABLE IF EXISTS estudiante";
+            cmd.ExecuteNonQuery();
+            cmd.CommandText = "DROP TABLE IF EXISTS nota";
+            cmd.ExecuteNonQuery();
+            cmd.CommandText = "DROP TABLE IF EXISTS asignatura";
+            cmd.ExecuteNonQuery();
+            cmd.CommandText = @"CREATE TABLE asignatura
+(
+                                    id    INTEGER NOT NULL UNIQUE,
+                                    nombre    TEXT NOT NULL UNIQUE,
+                                    codigo    INTEGER NOT NULL UNIQUE,
+                                    creditos  INTEGER NOT NULL,
+                                    laboratorio   INTEGER NOT NULL,
+                                    PRIMARY KEY(\"id\" AUTOINCREMENT)
+                                    )";
+            cmd.ExecuteNonQuery();
+            cmd.CommandText =
+cmd.ExecuteNonQuery();
+            cmd.CommandText =
+cmd.ExecuteNonQuery();
+
+
+            //Adapter
+            //Datatable
+
+            var dt = new DataTable();
+            var adapter = new SQLiteDataAdapter();
+            adapter.SelectCommand = cmd;
+            adapter.
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
