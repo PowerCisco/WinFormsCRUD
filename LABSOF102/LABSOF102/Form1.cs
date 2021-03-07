@@ -52,11 +52,11 @@ namespace LABSOF102
             try
             {
                 return
-                    txtPrimerParcial.Text.Length == 0 ? 20 : Convert.ToInt32(txtPrimerParcial.Text) +
-                    txtSegundoParcial.Text.Length == 0 ? 0 : Convert.ToInt32(txtSegundoParcial.Text) +
-                    txtLaboratorio.Text.Length == 0 ? 0 : Convert.ToInt32(txtLaboratorio.Text) +
-                    txtPracticas.Text.Length == 0 ? 0 : Convert.ToInt32(txtPracticas.Text) +
-                    txtExamenFinal.Text.Length == 0 ? 0 : Convert.ToInt32(txtExamenFinal.Text);
+                    Convert.ToInt32(txtPrimerParcial.Text) +
+                    Convert.ToInt32(txtSegundoParcial.Text) +
+                    Convert.ToInt32(txtLaboratorio.Text) +
+                    Convert.ToInt32(txtPracticas.Text) + 
+                    Convert.ToInt32(txtExamenFinal.Text);
             }
             catch (System.FormatException)
             {
@@ -72,63 +72,43 @@ namespace LABSOF102
 
         private void button3_Click(object sender, EventArgs e)
         {
-            var response = MessageBox.Show("¿Desea salir de la aplicación?","Salir", MessageBoxButtons.YesNo);
 
-            if (response == DialogResult.Yes)
-                Application.Exit();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            LimpiarFormulario();
+            
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
 
-            //if (txtMatricula.Text.Length <= 3)
-            //    MessageBox.Show("Introduzca al menos cuatro digitos de la matrícula");
-
-            //Connection object
-            var con = new SQLiteConnection(@"Data Source = .\Database.db");
-            con.Open();
-            //Common object to write SQL query
-            string query = "SELECT * from estudiante";
-            var cmd = new SQLiteCommand(query, con);
-            cmd.CommandText = "DROP TABLE IF EXISTS estudiante";
-            cmd.ExecuteNonQuery();
-            cmd.CommandText = "DROP TABLE IF EXISTS nota";
-            cmd.ExecuteNonQuery();
-            cmd.CommandText = "DROP TABLE IF EXISTS asignatura";
-            cmd.ExecuteNonQuery();
-            cmd.CommandText = @"CREATE TABLE asignatura
-(
-                                    id    INTEGER NOT NULL UNIQUE,
-                                    nombre    TEXT NOT NULL UNIQUE,
-                                    codigo    INTEGER NOT NULL UNIQUE,
-                                    creditos  INTEGER NOT NULL,
-                                    laboratorio   INTEGER NOT NULL,
-                                    PRIMARY KEY(\"id\" AUTOINCREMENT)
-                                    )";
-            cmd.ExecuteNonQuery();
-            cmd.CommandText =
-cmd.ExecuteNonQuery();
-            cmd.CommandText =
-cmd.ExecuteNonQuery();
-
-
-            //Adapter
-            //Datatable
-
-            var dt = new DataTable();
-            var adapter = new SQLiteDataAdapter();
-            adapter.SelectCommand = cmd;
-            adapter.
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LimpiarFormulario();
+        }
+
+
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var response = MessageBox.Show("¿Desea salir de la aplicación?", "Salir", MessageBoxButtons.YesNo);
+
+            if (response == DialogResult.Yes)
+                Application.Exit();
+        }
+
+        private void btnCalcular_Click_1(object sender, EventArgs e)
+        {
+            txtNotaFinal.Text = CalcularNota().ToString();
+            txtLiteral.Text = CalcularLiteral().ToString();
 
         }
     }
