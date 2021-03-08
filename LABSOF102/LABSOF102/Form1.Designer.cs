@@ -304,6 +304,7 @@ namespace LABSOF102
             this.lbl.Size = new System.Drawing.Size(214, 20);
             this.lbl.TabIndex = 0;
             this.lbl.Text = "Francisco Castillo 2020-0533";
+            this.lbl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             // 
             // btnBuscar
             // 
@@ -318,7 +319,7 @@ namespace LABSOF102
             this.btnBuscar.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnBuscar.Size = new System.Drawing.Size(220, 60);
             this.btnBuscar.TabIndex = 10;
-            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.Text = "Buscar Estudiante";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -360,6 +361,7 @@ namespace LABSOF102
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnCalcular
             // 
@@ -422,12 +424,12 @@ namespace LABSOF102
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Registro Estudiantes";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(820, 523);
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panelMenu);

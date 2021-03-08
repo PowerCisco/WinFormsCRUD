@@ -8,11 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
+using LABSOF102.Classes;
 
 namespace LABSOF102
 {
     public partial class Form1 : Form
     {
+
+
+
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 
@@ -48,6 +52,8 @@ namespace LABSOF102
                 txtPrimerParcial.Clear();
                 txtSegundoParcial.Clear();
                 txtNombre.Clear();
+
+                
             }
         }
 
@@ -96,9 +102,14 @@ namespace LABSOF102
             
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        public void btnBuscar_Click(object sender, EventArgs e)
         {
 
+            formResultados formResultados = new formResultados();
+            formResultados.StartPosition = FormStartPosition.CenterParent;
+            formResultados.ShowDialog();
+
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -125,6 +136,11 @@ namespace LABSOF102
         {
             txtNotaFinal.Text = CalcularNota().ToString();
             txtLiteral.Text = CalcularLiteral().ToString();
+
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
 
         }
     }
