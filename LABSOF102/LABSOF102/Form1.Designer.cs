@@ -56,6 +56,7 @@ namespace LABSOF102
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.panelMenu = new System.Windows.Forms.FlowLayoutPanel();
             this.panelLogo = new System.Windows.Forms.Panel();
+            this.lbl = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -63,7 +64,6 @@ namespace LABSOF102
             this.btnSalir = new System.Windows.Forms.Button();
             this.panelTitleBar = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.lbl = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
@@ -281,6 +281,7 @@ namespace LABSOF102
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(220, 523);
             this.panelMenu.TabIndex = 21;
+            this.panelMenu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             // 
             // panelLogo
             // 
@@ -291,6 +292,18 @@ namespace LABSOF102
             this.panelLogo.Name = "panelLogo";
             this.panelLogo.Size = new System.Drawing.Size(220, 80);
             this.panelLogo.TabIndex = 0;
+            this.panelLogo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
+            // 
+            // lbl
+            // 
+            this.lbl.AutoSize = true;
+            this.lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl.ForeColor = System.Drawing.Color.LightGray;
+            this.lbl.Location = new System.Drawing.Point(-3, 29);
+            this.lbl.Name = "lbl";
+            this.lbl.Size = new System.Drawing.Size(214, 20);
+            this.lbl.TabIndex = 0;
+            this.lbl.Text = "Francisco Castillo 2020-0533";
             // 
             // btnBuscar
             // 
@@ -395,6 +408,7 @@ namespace LABSOF102
             this.panelTitleBar.Name = "panelTitleBar";
             this.panelTitleBar.Size = new System.Drawing.Size(600, 80);
             this.panelTitleBar.TabIndex = 22;
+            this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             // 
             // lblTitulo
             // 
@@ -408,17 +422,6 @@ namespace LABSOF102
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Registro Estudiantes";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbl
-            // 
-            this.lbl.AutoSize = true;
-            this.lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl.ForeColor = System.Drawing.Color.LightGray;
-            this.lbl.Location = new System.Drawing.Point(-3, 29);
-            this.lbl.Name = "lbl";
-            this.lbl.Size = new System.Drawing.Size(214, 20);
-            this.lbl.TabIndex = 0;
-            this.lbl.Text = "Francisco Castillo 2020-0533";
             // 
             // Form1
             // 
@@ -452,12 +455,14 @@ namespace LABSOF102
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtPrimerParcial);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Windows Forms CRUD";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.panelMenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
             this.panelLogo.PerformLayout();
