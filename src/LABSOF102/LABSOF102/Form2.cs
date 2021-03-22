@@ -19,6 +19,7 @@ namespace LABSOF102
         public formResultados()
         {
             estudiantes.Add(new Estudiante("Francisco", "Castillo", "2020-0533", "SOF102", 3));
+            estudiantes.Add(new Estudiante("Alberto", "Martinez", "2019-0353", "INF108", 3));
 
             InitializeComponent();
         }
@@ -36,24 +37,36 @@ namespace LABSOF102
         private void btnAceptar_Click(object sender, EventArgs e)
         {
 
+            //Close();
+            //Form1.txtMatricula.Text = dataGridView1.
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-
             Close();
+            
         }
 
 
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex >= 0)
+            {
 
-            //estudiantes.Add(new Estudiante() { Nombre = "Francisco", Apellido = "Castillo", Asignatura = "SOF102", Creditos = 3, Matricula = "2020-0533" }
-            
-            
-            dataGridView1.DataSource = estudiantes;
+            }
+            DataGridViewRow row = dgvRegistro.Rows[e.RowIndex];
+            Form1 form1 = new Form1();
 
+            form1.txtNombre.Text = dgvRegistro.CurrentRow.Cells[0].Value.ToString();
+            form1.txtApellido.Text = dgvRegistro.CurrentRow.Cells[1].Value.ToString();
+            form1.txtMatricula.Text = dgvRegistro.CurrentRow.Cells[2].Value.ToString();
+            form1.txtAsignatura.Text = dgvRegistro.CurrentRow.Cells[3].Value.ToString();
+        }
+
+        private void dataGridView1_Enter(object sender, EventArgs e)
+        {
+            dgvRegistro.DataSource = estudiantes;
         }
     }
 }

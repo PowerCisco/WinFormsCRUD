@@ -14,7 +14,10 @@ namespace LABSOF102
 {
     public partial class Form1 : Form
     {
-
+        public static string Matricula;
+        public static string Nombre;
+        public static string Apellido;
+        public static string Asignatura;
 
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -34,7 +37,7 @@ namespace LABSOF102
             }
         }
 
-        public void LimpiarFormulario()
+        private void LimpiarFormulario()
         {
             DialogResult respuesta = MessageBox.Show("¿Desea limpiar el formulario?", "Limpiar formulario", MessageBoxButtons.OKCancel);
 
@@ -108,6 +111,7 @@ namespace LABSOF102
             formResultados formResultados = new formResultados();
             formResultados.StartPosition = FormStartPosition.CenterParent;
             formResultados.ShowDialog();
+            formResultados.Activate();
 
             
         }
@@ -119,29 +123,70 @@ namespace LABSOF102
 
         private void button1_Click(object sender, EventArgs e)
         {
-            LimpiarFormulario();
         }
 
 
 
         private void button4_Click(object sender, EventArgs e)
         {
-            var response = MessageBox.Show("¿Desea salir de la aplicación?", "Salir", MessageBoxButtons.YesNo);
 
-            if (response == DialogResult.Yes)
-                Application.Exit();
         }
 
         private void btnCalcular_Click_1(object sender, EventArgs e)
         {
-            txtNotaFinal.Text = CalcularNota().ToString();
-            txtLiteral.Text = CalcularLiteral().ToString();
+
 
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+        }
 
+        private void lbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscar_Click_1(object sender, EventArgs e)
+        {
+            formResultados formResultados = new formResultados();
+            formResultados.StartPosition = FormStartPosition.CenterParent;
+            formResultados.ShowDialog();
+            formResultados.Activate();
+        }
+
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
+            frmNuevoUsuario FormNuevoUsuario = new frmNuevoUsuario();
+            FormNuevoUsuario.StartPosition = FormStartPosition.CenterParent;
+            FormNuevoUsuario.ShowDialog();
+            FormNuevoUsuario.Activate();
+        }
+
+        private void btnGuardar_Click_1(object sender, EventArgs e)
+        {
+            MessageBox.Show("Este botón aún no funciona.", "Función no implementada.");
+
+        }
+
+        private void btnCalcular_Click(object sender, EventArgs e)
+        {
+            txtNotaFinal.Text = CalcularNota().ToString();
+            txtLiteral.Text = CalcularLiteral().ToString();
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarFormulario();
+
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            var response = MessageBox.Show("¿Desea salir de la aplicación?", "Salir", MessageBoxButtons.YesNo);
+
+            if (response == DialogResult.Yes)
+                Application.Exit();
         }
     }
 }
